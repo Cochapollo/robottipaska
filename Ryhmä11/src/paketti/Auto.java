@@ -26,7 +26,7 @@ import lejos.robotics.pathfinding.ShortestPathFinder;
 import paketti.Threads.HaeTiedotAuto;
 import paketti.Threads.InfrapunaThread;
 /**
- * Auton alustamiseen tehty luokka
+ * Auton alustamiseen varten luokka
  * @author petri
  *
  */
