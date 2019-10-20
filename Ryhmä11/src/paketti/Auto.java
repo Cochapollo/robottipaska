@@ -116,6 +116,9 @@ public class Auto {
 			getNavigator().getPoseProvider().setPose(startPose);
 			getPoseprovider().setPose(startPose);
 			}
+		/**
+		 * asettaa auton alkusijainnin
+		 */
 		public static void setStartHeading() {
 			startHeading = getNavigator().getPoseProvider().getPose().getHeading();
 			}
