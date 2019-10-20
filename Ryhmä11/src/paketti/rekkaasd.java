@@ -10,7 +10,11 @@ import lejos.robotics.navigation.Waypoint;
 import lejos.utility.Delay;
 import paketti.Threads.*;
 
-
+/**
+ * Luokka jossa testasimme yhteyksien avausta tietokoneesta rekkaan ja rekasta autoon
+ * @author petri
+ *
+ */
 public class rekkaasd {
 
 	public static ServerSocket server = null, autoServer = null;

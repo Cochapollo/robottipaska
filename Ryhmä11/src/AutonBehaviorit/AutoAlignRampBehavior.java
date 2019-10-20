@@ -1,5 +1,7 @@
 package AutonBehaviorit;
 
+
+
 import lejos.robotics.subsumption.Behavior;
 import paketti.Auto;
 import paketti.Threads.InfrapunaThread;
