@@ -1,4 +1,4 @@
-package paketti;
+package paketti.Threads;
 
 
 
@@ -7,7 +7,7 @@ import java.io.IOException;
 import lejos.hardware.Button;
 import lejos.robotics.navigation.Waypoint;
 import lejos.utility.Delay;
-import paketti.Threads.Yhteyksienavaus;
+import paketti.Auto;
 
 public class HaeTiedotAuto extends Thread{
 	boolean kappa;

@@ -23,6 +23,8 @@ import lejos.robotics.navigation.Pose;
 import lejos.robotics.navigation.Waypoint;
 import lejos.robotics.pathfinding.Path;
 import lejos.robotics.pathfinding.ShortestPathFinder;
+import paketti.Threads.HaeTiedotAuto;
+import paketti.Threads.InfrapunaThread;
 
 public class Auto {
 

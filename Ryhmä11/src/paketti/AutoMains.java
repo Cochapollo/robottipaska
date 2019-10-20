@@ -1,5 +1,13 @@
 package paketti;
 
+import AutonBehavior.AutoAlignRampBehavior;
+import AutonBehavior.AutoEnterRampBehavior;
+import AutonBehavior.AutoExitRampBehavior;
+import AutonBehavior.AutoIdleBehavior;
+import AutonBehavior.AutoInfraStopBehavior;
+import AutonBehavior.AutoInfraTriggerBehavior;
+import AutonBehavior.AutoMissionBehavior;
+import AutonBehavior.AutoReturnToRekkaBehavior;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 

@@ -1,5 +1,8 @@
 package paketti;
 
+import RekanBehavior.RekkaGyroInterceptBehavior;
+import RekanBehavior.RekkaStraightBehavior;
+import RekanBehavior.RekkaTurnBehavior;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 

@@ -1,4 +1,4 @@
-package paketti;
+package AutonBehavior;
 
 import lejos.hardware.Sound;
 import lejos.robotics.subsumption.Behavior;

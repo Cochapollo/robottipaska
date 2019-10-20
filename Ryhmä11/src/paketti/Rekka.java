@@ -24,6 +24,7 @@ import lejos.robotics.localization.PoseProvider;
 import lejos.robotics.navigation.MovePilot;
 import lejos.robotics.navigation.Pose;
 import lejos.utility.GyroDirectionFinder;
+import paketti.Threads.HaeTiedot;
 import paketti.Threads.Yhteyksienavaus;
 
 public class Rekka {

@@ -1,4 +1,4 @@
-package paketti;
+package paketti.Threads;
 
 import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.port.Port;

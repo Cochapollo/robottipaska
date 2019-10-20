@@ -1,6 +1,8 @@
-package paketti;
+package RekanBehavior;
 
 import lejos.robotics.subsumption.Behavior;
+import paketti.Gyro;
+import paketti.Rekka;
 
 /**
  * 

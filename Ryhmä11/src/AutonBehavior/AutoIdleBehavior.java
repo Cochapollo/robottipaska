@@ -1,8 +1,10 @@
-package paketti;
+package AutonBehavior;
 
 import lejos.hardware.Button;
 import lejos.hardware.sensor.EV3IRSensor;
 import lejos.robotics.subsumption.Behavior;
+import paketti.Auto;
+import paketti.Threads.InfrapunaThread;
 
 /**
  * 
