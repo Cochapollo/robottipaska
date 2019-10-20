@@ -26,18 +26,26 @@ import lejos.robotics.navigation.Pose;
 import lejos.utility.GyroDirectionFinder;
 import paketti.Threads.HaeTiedot;
 import paketti.Threads.Yhteyksienavaus;
-
+/**
+ * Luokka rekan alustamiseen
+ * @author petri
+ *
+ */
 public class Rekka {
 
 	
-	// Moottoriportit
+	/**
+	 *  Moottoriportit
+	 */
 	static RegulatedMotor rearLeft = new EV3LargeRegulatedMotor(MotorPort.A);
 	static RegulatedMotor frontLeft = new EV3LargeRegulatedMotor(MotorPort.B);
 	static RegulatedMotor rearRight = new EV3LargeRegulatedMotor(MotorPort.C);
 	static RegulatedMotor frontRight = new EV3LargeRegulatedMotor(MotorPort.D);
 
 	
-	//  Chassis
+	/**
+	 *   Chassis
+	 */
 	static Wheel wheel1 = WheeledChassis.modelWheel(rearLeft, 4.23).offset(8.5).invert(true);
 	static Wheel wheel2 = WheeledChassis.modelWheel(rearRight, 4.23).offset(-8.5).invert(true);
 	static Wheel wheel3 = WheeledChassis.modelWheel(frontLeft, 4.23).offset(8.5);
@@ -64,7 +72,9 @@ public class Rekka {
 	}
 	
 	
-	//Aseta rekan vauhdit hitaiksi
+	/**
+	 * Aseta rekan vauhdit hitaiksi
+	 */
 	public static void startupInit() {
 		getPilot().setLinearAcceleration(10);
 		getPilot().setAngularAcceleration(10);
@@ -91,7 +101,9 @@ public class Rekka {
 	
 
 	
-	// Aja eteenpäin suoraan. Tän vois korvata jollain fiksummalla. Gyroa inee.
+	/**
+	 *  Aja eteenpäin suoraan. Tän vois korvata jollain fiksummalla. Gyroa inee.
+	 */
 	public static void driveStraight() {
 		
 		double suunta = poseprovider.getPose().getHeading();
@@ -109,7 +121,9 @@ public class Rekka {
 		getPilot().stop();
 	}
 	
-	//Alusta startpose kun auto poistuu rekan kyydistä. Tätä tarvitaan auton navigointiin ...ehkä?
+	/**
+	 * Alusta startpose kun auto poistuu rekan kyydistä. Tätä tarvitaan auton navigointiin ...ehkä?
+	 */
 	public static void setStartPose() {
 		
 		poseprovider.setPose(startPose);
@@ -124,6 +138,10 @@ public class Rekka {
 	public static Gyro getGyro() {
 		return gyro;
 	}
+	/**
+	 * Tarkistaa onko gyron heading oikea
+	 * @return
+	 */
 	public static boolean gyroHeadingReached() {
 		if(getGyrodirectionfinder().getDegrees() >= 320) {
 			return true;
