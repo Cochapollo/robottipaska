@@ -32,7 +32,7 @@ public class RekkaGyroInterceptBehavior implements Behavior {
 	public void action() {
 		suppressed = false;
 		System.out.println("GyroIntercept");
-		System.out.println("GyroHeadingDegrees: " + Rekka.gyrodirectionfinder.getDegrees());
+		System.out.println("GyroHeadingDegrees: " + Rekka.getGyrodirectionfinder().getDegrees());
 		//System.out.println("Total angle:" + gyro.getTotalAngle());
 		//System.out.println("current heading:" + Rekka.getCurrentHeading());
 		gyroActive = false;

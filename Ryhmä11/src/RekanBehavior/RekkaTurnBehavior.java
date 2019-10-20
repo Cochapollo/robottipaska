@@ -28,16 +28,16 @@ public class RekkaTurnBehavior implements Behavior {
 		suppressed = false;
 		start = false;
 		System.out.println("Rekka Turn");
-		Rekka.gyrodirectionfinder.setDegrees(0);
-		System.out.println("GyroHeadingDegrees: " + Rekka.gyrodirectionfinder.getDegrees());
+		Rekka.getGyrodirectionfinder().setDegrees(0);
+		System.out.println("GyroHeadingDegrees: " + Rekka.getGyrodirectionfinder().getDegrees());
 		RekkaGyroInterceptBehavior.setGyroActive(true);
 		//gyro.resetTotalAngle();
 		//Rekka.setTargetHeading();
 		//System.out.println("Total angle: " + gyro.getTotalAngle());
 		//System.out.println("Current heading: " + Rekka.getCurrentHeading());
-		Rekka.pilot.arcForward(45);
+		Rekka.getPilot().arcForward(45);
 		while(!suppressed) Thread.yield();
-		Rekka.pilot.stop();
+		Rekka.getPilot().stop();
 		
 	}
 	public static void setStart() {

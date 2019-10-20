@@ -46,8 +46,8 @@ public class RekkaIdleBehavior implements Behavior {
 	
 	public void action() {
 		suppressed = false;
-		Rekka.gyrodirectionfinder.setDegrees(0);
-		Rekka.pilot.stop();
+		Rekka.getGyrodirectionfinder().setDegrees(0);
+		Rekka.getPilot().stop();
 		System.out.println("Rekka idle");
 		while(!suppressed) {
 		
@@ -55,8 +55,8 @@ public class RekkaIdleBehavior implements Behavior {
 		RekkaStraightBehavior.setStart();
 		}
 		
-		if(Rekka.hae.getBooleans()[0]) {
-			Rekka.hae.lopeta();
+		if(Rekka.getHae().getBooleans()[0]) {
+			Rekka.getHae().lopeta();
 			
 			
 			RekkaStraightBehavior.setStart();

@@ -65,18 +65,18 @@ public class AutoAlignRampBehavior implements Behavior {
 				break;
 			}
 			else if (!ir.leftRampNear() && !ir.rightRampNear()) {
-				Auto.pilot.travel(15);
+				Auto.getPilot().travel(15);
 			}
 			else if (ir.leftRampNear() && !ir.rightRampNear()) {
 				//Auto.pilot.rotate(10);
-				Auto.pilot.travelArc(20, 20);
+				Auto.getPilot().travelArc(20, 20);
 				rampIRcheck=true;
 				break;
 				
 			}
 			else if (!ir.leftRampNear() && ir.rightRampNear()) {
 				//Auto.pilot.rotate(-10);
-				Auto.pilot.travelArc(-20, 20);
+				Auto.getPilot().travelArc(-20, 20);
 				rampIRcheck=true;
 				break;
 			}

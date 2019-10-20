@@ -41,12 +41,12 @@ public class Auto {
 		static final Wheel wheel3 = WheeledChassis.modelWheel(frontLeft, 4.23).offset(23.5);
 		static final Wheel wheel4 = WheeledChassis.modelWheel(frontRight, 4.23).offset(-23.5);
 		static final Chassis chassis = new WheeledChassis(new Wheel[] { wheel1, wheel2, wheel3, wheel4 }, WheeledChassis.TYPE_DIFFERENTIAL);
-		static MovePilot pilot = new MovePilot(chassis);
+		private static MovePilot pilot = new MovePilot(chassis);
 		
-		static PoseProvider poseprovider = chassis.getPoseProvider();
-		static Navigator navigator = new Navigator(pilot);
+		private static PoseProvider poseprovider = chassis.getPoseProvider();
+		private static Navigator navigator = new Navigator(getPilot());
 		static Pose startPose = new Pose(10, 10, 0);
-		static float startHeading = 0;
+		private static float startHeading = 0;
 		static Kartta kartta = new Kartta();
 		static ShortestPathFinder pathfinder = new ShortestPathFinder(kartta.getKartta());
 		static private InfrapunaThread ir = new InfrapunaThread();
@@ -60,7 +60,7 @@ public class Auto {
 		public static ObjectInputStream oIn = null, autoOin = null, rekkaOin = null;
 		
 		static boolean moving = false;
-		static HaeTiedotAuto hae = new HaeTiedotAuto();
+		private static HaeTiedotAuto hae = new HaeTiedotAuto();
 		
 		
 		public Auto() {
@@ -70,10 +70,10 @@ public class Auto {
 		//Alusta nopeus- ja kiihtyvyysarvot.
 		public static void startupInit() {	
 			pathfinder.lengthenLines(5);
-			pilot.setLinearSpeed(60);
-			pilot.setAngularSpeed(60);
-			pilot.setLinearAcceleration(60);
-			pilot.setAngularAcceleration(60);
+			getPilot().setLinearSpeed(60);
+			getPilot().setAngularSpeed(60);
+			getPilot().setLinearAcceleration(60);
+			getPilot().setAngularAcceleration(60);
 			try {
 				int kys = 1111;
 				autoServer = new ServerSocket(kys);
@@ -94,18 +94,18 @@ public class Auto {
 			}
 			
 			ir.start();
-			hae.start();
+			getHae().start();
 			}
 		public static InfrapunaThread getIr() {
 			return ir;
 		}
 		//Alusta startpose kun auto poistuu rekan kyydistä
 		public static void setStartPose() {
-			navigator.getPoseProvider().setPose(startPose);
-			poseprovider.setPose(startPose);
+			getNavigator().getPoseProvider().setPose(startPose);
+			getPoseprovider().setPose(startPose);
 			}
 		public static void setStartHeading() {
-			startHeading = navigator.getPoseProvider().getPose().getHeading();
+			startHeading = getNavigator().getPoseProvider().getPose().getHeading();
 			}
 		
 		
@@ -113,13 +113,13 @@ public class Auto {
 		// Ajaa takaisin lähtöpisteeseen tehtävän jälkeen.
 		public static void driveToStartPose() {
 		
-			Pose currentPose = poseprovider.getPose();
+			Pose currentPose = getPoseprovider().getPose();
 			
 			
 			Waypoint startPoint = new Waypoint(startPose.getX(), startPose.getY(), startPose.getHeading());
-			System.out.println("X: " + poseprovider.getPose().getX() + " Y: " + poseprovider.getPose().getY() + " H: " + poseprovider.getPose().getHeading());
+			System.out.println("X: " + getPoseprovider().getPose().getX() + " Y: " + getPoseprovider().getPose().getY() + " H: " + getPoseprovider().getPose().getHeading());
 			try {
-				navigator.goTo(10, 10, 0);
+				getNavigator().goTo(10, 10, 0);
 				
 				/*
 				Path path = pathfinder.findRoute(currentPose, startPoint);
@@ -131,24 +131,64 @@ public class Auto {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			pilot.rotate(startPose.getHeading());
+			getPilot().rotate(startPose.getHeading());
 		}
 		
 		public static void exitRamp() {
 			
-			pilot.setLinearSpeed(40);
-			pilot.travel(-50);
-			pilot.setLinearSpeed(100);
-			pilot.stop();
+			getPilot().setLinearSpeed(40);
+			getPilot().travel(-50);
+			getPilot().setLinearSpeed(100);
+			getPilot().stop();
 			
 		}
 		public static void enterRamp() {
 			
-			pilot.forward();
+			getPilot().forward();
 	
 		}
 		public static void setMoving(boolean b) {
 			moving = b;
+		}
+
+		public static MovePilot getPilot() {
+			return pilot;
+		}
+
+		public static void setPilot(MovePilot pilot) {
+			Auto.pilot = pilot;
+		}
+
+		public static PoseProvider getPoseprovider() {
+			return poseprovider;
+		}
+
+		public static void setPoseprovider(PoseProvider poseprovider) {
+			Auto.poseprovider = poseprovider;
+		}
+
+		public static HaeTiedotAuto getHae() {
+			return hae;
+		}
+
+		public static void setHae(HaeTiedotAuto hae) {
+			Auto.hae = hae;
+		}
+
+		public static float getStartHeading() {
+			return startHeading;
+		}
+
+		public static void setStartHeading(float startHeading) {
+			Auto.startHeading = startHeading;
+		}
+
+		public static Navigator getNavigator() {
+			return navigator;
+		}
+
+		public static void setNavigator(Navigator navigator) {
+			Auto.navigator = navigator;
 		}
 		
 

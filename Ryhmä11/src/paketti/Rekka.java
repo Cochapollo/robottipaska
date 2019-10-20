@@ -43,7 +43,7 @@ public class Rekka {
 	static Wheel wheel3 = WheeledChassis.modelWheel(frontLeft, 4.23).offset(8.5);
 	static Wheel wheel4 = WheeledChassis.modelWheel(frontRight, 4.23).offset(-8.5);
 	static Chassis chassis = new WheeledChassis(new Wheel[] { wheel1, wheel2, wheel3, wheel4 }, WheeledChassis.TYPE_DIFFERENTIAL);
-	static MovePilot pilot = new MovePilot(chassis);
+	private static MovePilot pilot = new MovePilot(chassis);
 	static PoseProvider poseprovider = chassis.getPoseProvider();
 	static Pose startPose = new Pose(0, 0, 0);
 	public static ServerSocket server = null, autoServer = null;
@@ -56,9 +56,9 @@ public class Rekka {
 	public static ObjectInputStream oIn = null, autoOin = null, rekkaOin = null;
 	
 	static private Gyro gyro = new Gyro();
-	static GyroDirectionFinder gyrodirectionfinder;
+	private static GyroDirectionFinder gyrodirectionfinder;
 	static float targetHeading = 180;
-	static HaeTiedot hae = new HaeTiedot();
+	private static HaeTiedot hae = new HaeTiedot();
 	public Rekka() {
 		
 	}
@@ -66,14 +66,14 @@ public class Rekka {
 	
 	//Aseta rekan vauhdit hitaiksi
 	public static void startupInit() {
-		pilot.setLinearAcceleration(10);
-		pilot.setAngularAcceleration(10);
+		getPilot().setLinearAcceleration(10);
+		getPilot().setAngularAcceleration(10);
 
-		pilot.setLinearSpeed(5);
-		pilot.setAngularSpeed(5);
+		getPilot().setLinearSpeed(5);
+		getPilot().setAngularSpeed(5);
 		//gyro.start();
 		//gyro.reset();
-		gyrodirectionfinder = new GyroDirectionFinder(gyro, true);
+		setGyrodirectionfinder(new GyroDirectionFinder(gyro, true));
 		try {
 			server = new ServerSocket(9999);
 			soc = server.accept();
@@ -86,7 +86,7 @@ public class Rekka {
 			e.printStackTrace();
 		}
 		
-		hae.start();
+		getHae().start();
 	}
 	
 
@@ -104,9 +104,9 @@ public class Rekka {
 		
 		
 		while(poseprovider.getPose().getX() != target) {
-			pilot.forward();
+			getPilot().forward();
 		}
-		pilot.stop();
+		getPilot().stop();
 	}
 	
 	//Alusta startpose kun auto poistuu rekan kyydistä. Tätä tarvitaan auton navigointiin ...ehkä?
@@ -125,10 +125,40 @@ public class Rekka {
 		return gyro;
 	}
 	public static boolean gyroHeadingReached() {
-		if(gyrodirectionfinder.getDegrees() >= 320) {
+		if(getGyrodirectionfinder().getDegrees() >= 320) {
 			return true;
 		}
 		else return false;
+	}
+
+
+	public static GyroDirectionFinder getGyrodirectionfinder() {
+		return gyrodirectionfinder;
+	}
+
+
+	public static void setGyrodirectionfinder(GyroDirectionFinder gyrodirectionfinder) {
+		Rekka.gyrodirectionfinder = gyrodirectionfinder;
+	}
+
+
+	public static HaeTiedot getHae() {
+		return hae;
+	}
+
+
+	public static void setHae(HaeTiedot hae) {
+		Rekka.hae = hae;
+	}
+
+
+	public static MovePilot getPilot() {
+		return pilot;
+	}
+
+
+	public static void setPilot(MovePilot pilot) {
+		Rekka.pilot = pilot;
 	}
 }
 

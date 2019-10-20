@@ -65,15 +65,15 @@ public class RekkaStraightBehavior implements Behavior {
 			e.printStackTrace();
 		}
 		try {
-			rekkaOout.writeObject(Rekka.hae.getBooleans());
+			rekkaOout.writeObject(Rekka.getHae().getBooleans());
 			rekkaOout.flush();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		Boolean[] xd = {false,false,false,false};
-		Rekka.hae.setBooleans(xd);
-		Rekka.pilot.travel(100);
+		Rekka.getHae().setBooleans(xd);
+		Rekka.getPilot().travel(100);
 		
 		//while(!suppressed) Thread.yield();
 		//Rekka.pilot.stop();
