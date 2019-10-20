@@ -25,17 +25,25 @@ import lejos.robotics.pathfinding.Path;
 import lejos.robotics.pathfinding.ShortestPathFinder;
 import paketti.Threads.HaeTiedotAuto;
 import paketti.Threads.InfrapunaThread;
-
+/**
+ * Auton alustamiseen tehty luokka
+ * @author petri
+ *
+ */
 public class Auto {
 
 
-		// Moottorit
+		/**
+		 *  Moottorit
+		 */
 		static final RegulatedMotor rearLeft = new EV3LargeRegulatedMotor(MotorPort.A);
 		static final RegulatedMotor frontLeft = new EV3LargeRegulatedMotor(MotorPort.C);
 		static final RegulatedMotor rearRight = new EV3LargeRegulatedMotor(MotorPort.B);
 		static final RegulatedMotor frontRight = new EV3LargeRegulatedMotor(MotorPort.D);
 		
-		//  Auton chassis
+		 /**
+		  * Auton chassis
+		  */
 		static final Wheel wheel1 = WheeledChassis.modelWheel(rearLeft, 4.23).offset(23.5).invert(true);
 		static final Wheel wheel2 = WheeledChassis.modelWheel(rearRight, 4.23).offset(-23.5).invert(true);
 		static final Wheel wheel3 = WheeledChassis.modelWheel(frontLeft, 4.23).offset(23.5);
@@ -67,7 +75,9 @@ public class Auto {
 			
 		}
 		
-		//Alusta nopeus- ja kiihtyvyysarvot.
+		/**
+		 * Alusta nopeus- ja kiihtyvyysarvot.
+		 */
 		public static void startupInit() {	
 			pathfinder.lengthenLines(5);
 			getPilot().setLinearSpeed(60);
@@ -99,7 +109,9 @@ public class Auto {
 		public static InfrapunaThread getIr() {
 			return ir;
 		}
-		//Alusta startpose kun auto poistuu rekan kyydistä
+		/**
+		 * Alusta startpose kun auto poistuu rekan kyydistä
+		 */
 		public static void setStartPose() {
 			getNavigator().getPoseProvider().setPose(startPose);
 			getPoseprovider().setPose(startPose);
@@ -110,7 +122,9 @@ public class Auto {
 		
 		
 		
-		// Ajaa takaisin lähtöpisteeseen tehtävän jälkeen.
+		/**
+		 * Ajaa takaisin lähtöpisteeseen tehtävän jälkeen.
+		 */
 		public static void driveToStartPose() {
 		
 			Pose currentPose = getPoseprovider().getPose();
@@ -133,7 +147,9 @@ public class Auto {
 			}
 			getPilot().rotate(startPose.getHeading());
 		}
-		
+		/**
+		 * auto lähtee pois rampilta
+		 */
 		public static void exitRamp() {
 			
 			getPilot().setLinearSpeed(40);
@@ -142,6 +158,9 @@ public class Auto {
 			getPilot().stop();
 			
 		}
+		/**
+		 * auto ajaa suoraan
+		 */
 		public static void enterRamp() {
 			
 			getPilot().forward();
