@@ -21,6 +21,12 @@ import lejos.robotics.pathfinding.Path;
 import lejos.robotics.pathfinding.PathFinder;
 import lejos.robotics.pathfinding.ShortestPathFinder;
 
+/**
+ * 
+ * Tässä luokassa testasimme moottorikomentoja, jotka eivät koskaan kuitenkaan toimineet lejos API:n puutteiden takia.
+ *
+ */
+
 public class PepegaCar {
 
 	public static void main(String[] args) {
