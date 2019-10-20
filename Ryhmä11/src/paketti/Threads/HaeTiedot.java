@@ -54,7 +54,13 @@ public class HaeTiedot extends Thread{
 	public synchronized Boolean[] getBooleans() {
 		return mbol;
 	}
-	
+	/**
+	 * Settaa boolean taulukon
+	 * @param b
+	 */
+	public synchronized void setBooleans(Boolean[] b) {
+		this.mbol = b;
+	}
 	/**
 	 * Metodi threadin lopettamiseen
 	 */

@@ -43,7 +43,7 @@ public class Rekka {
 	static Wheel wheel3 = WheeledChassis.modelWheel(frontLeft, 4.23).offset(8.5);
 	static Wheel wheel4 = WheeledChassis.modelWheel(frontRight, 4.23).offset(-8.5);
 	static Chassis chassis = new WheeledChassis(new Wheel[] { wheel1, wheel2, wheel3, wheel4 }, WheeledChassis.TYPE_DIFFERENTIAL);
-	private static MovePilot pilot = new MovePilot(chassis);
+	public static MovePilot pilot = new MovePilot(chassis);
 	static PoseProvider poseprovider = chassis.getPoseProvider();
 	static Pose startPose = new Pose(0, 0, 0);
 	public static ServerSocket server = null, autoServer = null;
