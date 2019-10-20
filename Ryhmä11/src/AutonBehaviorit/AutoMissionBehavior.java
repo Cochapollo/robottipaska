@@ -3,6 +3,7 @@ package AutonBehaviorit;
 import lejos.hardware.Sound;
 import lejos.robotics.subsumption.Behavior;
 import lejos.utility.Delay;
+import paketti.Auto;
 
 /**
  * 
@@ -29,19 +30,17 @@ public class AutoMissionBehavior implements Behavior {
 		start = false;
 		System.out.println("Mission start");
 		
-		//Auto.pilot.rotate(90);
+		Auto.pilot.rotate(90);
 		
 		Delay.msDelay(2000);
 		Sound.beep();
-		//AutoInfraTriggerBehavior.setMonitoringActive(true);
-		//Auto.pilot.travel(25);
+		AutoInfraTriggerBehavior.setMonitoringActive(true);
+		Auto.pilot.travel(25);
 		
-		/*while (!suppressed) {
+		while (!suppressed) {
 			Thread.yield();
 			Auto.pilot.rotate(20);
 		}
-		*/
-		AutoAlignRampBehavior.setStart();
 	}
 	public static void setStart() {
 		start = true;
