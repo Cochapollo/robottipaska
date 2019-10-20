@@ -16,6 +16,7 @@ import lejos.utility.Delay;
  * 
  * @author Petri
  *Rekan portti autoon 1111 ja Rekan portti tietokoneeseen 9999
+ *Luokka jonka avulla avataan ja suljetaan yhteyksiä
  */
 
 public class Yhteyksienavaus{
@@ -29,7 +30,7 @@ public class Yhteyksienavaus{
 	public static ObjectInputStream oIn = null, autoOin = null, rekkaOin = null;
 	
 /**
- * 
+ * Avataan Yhteystietokoneeseen output intput ja socket
  */
 public static void avaaTietokoneSocket() {
 	try {
@@ -57,6 +58,9 @@ public static void avaaTietokoneSocket() {
 	}
 	
 }
+/**
+ * suljetaan rekan yhteys tietokoneeseen
+ */
 public static void suljeTietokoneSocket() {
 	try {
 		Out.flush();
@@ -70,52 +74,10 @@ public static void suljeTietokoneSocket() {
 		e.printStackTrace();
 	}
 }
-public static void avaaTietokoneDataStream() {
-		
-		try {
-			
-			
-			dIn = new DataInputStream(in);
 
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-public static void suljeTietokoneDataStream() {
-	try {
-		Out.close();
-		dOut.close();
-		
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-}
-/*public static void avaaTietokoneObjectStream() {
-	
-	try {
-		
-		
-		
-	} catch (UnknownHostException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-}*/
-public static void suljeTietokoneObjectStream() {
-	try {
-		Out.flush();
-		oOut.flush();
-		
-	}catch(Exception e) {
-		e.printStackTrace();
-	}
-}
+/**
+ * Avaa yhteyden rekan ja auton välille
+ */
 public static void avaaAutonSocket() {
 	
 	
@@ -145,6 +107,9 @@ public static void avaaAutonSocket() {
 		
 	
 }
+/**
+ * Sulkee yhteyden autosta rekkaan
+ */
 public static void suljeAutonSocket() {
 	try {
 		autoIn.close();
@@ -156,51 +121,12 @@ public static void suljeAutonSocket() {
 		e.printStackTrace();
 	}
 }
-//Avaa datainput sreamin autosta rekkaan
-public static void avaaAutoDataStream() {
-	try {
-		
-		
-		
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-}
-public static void suljeAutoDataStream() {
-	try {
-		
-		autoDin.close();
-		autoDout.close();
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-}
-public static void avaaAutoObjectOutStream() {
-	try {
-		autoOin = new ObjectInputStream(autoIn);
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-		
-	
-}
-public static void suljeAutoObjectStream() {
-	try {
-		autoOout.close();
-		autoOin.close();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-}
 
 
-//Avaa socketin rekka lähettää tietoa autolle ja vastaanottaa
+
+/**
+ * Avaa yhteyden rekasta autoon
+ */
 public static void avaaSocketAutoon() {
 	
 	try {
@@ -222,7 +148,9 @@ public static void avaaSocketAutoon() {
 		e.printStackTrace();
 	}
 }
-//Sulkee datainput socketit rekasta autoon
+/**
+ * Sulkee yhteyden rekasta autoon
+ */
 public static void suljeRekanSocketit() {
 	try {
 		rekkaOut.close();
@@ -233,38 +161,6 @@ public static void suljeRekanSocketit() {
 	}
 }
 
-public static void avaaDataStreamRekka() {
-	try {
-		
-	}catch(Exception e) {
-		e.printStackTrace();
-	}
-}
-public static void suljeDataStreamRekka() {
-	try {
-		rekkaDin.close();
-		rekkaDout.close();
-	}catch(Exception e) {
-		e.printStackTrace();
-	}
-}
-public static void avaaObjectStreamInRekka() {
-	try {
-		rekkaOin = new ObjectInputStream(rekkaIn);
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-}
-public static void suljeOhjectStreamRekka() {
-	try {
-		rekkaOin.close();
-		rekkaOout.close();
-	}catch(Exception e) {
-		e.printStackTrace();
-	}
-}
 	
 }
 

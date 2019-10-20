@@ -8,7 +8,11 @@ import lejos.hardware.Button;
 import lejos.robotics.navigation.Waypoint;
 import lejos.utility.Delay;
 import paketti.Auto;
-
+/**
+ * 
+ * @author petri
+ * Threadi joka hakee tiedot autolle rekalta
+ */
 public class HaeTiedotAuto extends Thread{
 	boolean kappa;
 	Boolean[] mbol = {false,false,false,false};
@@ -36,14 +40,24 @@ public class HaeTiedotAuto extends Thread{
 		}
 
 	}
-
-
+	
+/**
+ * Palauttaa boolean taulukon
+ * @return
+ */
 	public synchronized Boolean[] getBooleans() {
 		return mbol;
 	}
+	/**
+	 * 
+	 * @param b
+	 */
 	public synchronized void setBooleans(Boolean[] b) {
 		this.mbol = b;
 	}
+	/**
+	 * Lopettaa Threadin
+	 */
 	public void lopeta() {
 		kappa = false;
 	}

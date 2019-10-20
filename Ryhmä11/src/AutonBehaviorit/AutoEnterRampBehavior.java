@@ -1,4 +1,4 @@
-package AutonBehavior;
+package AutonBehaviorit;
 
 import lejos.robotics.subsumption.Behavior;
 import paketti.Auto;
@@ -25,14 +25,14 @@ public class AutoEnterRampBehavior implements Behavior {
 		suppressed = false;
 		start = false;
 		System.out.println("Enter Ramp");
-		Auto.getPilot().setLinearAcceleration(50);
-		Auto.getPilot().setLinearSpeed(30);
-		Auto.getPilot().setAngularAcceleration(50);
-		Auto.getPilot().setAngularSpeed(30);
+		Auto.pilot.setLinearAcceleration(50);
+		Auto.pilot.setLinearSpeed(30);
+		Auto.pilot.setAngularAcceleration(50);
+		Auto.pilot.setAngularSpeed(30);
 		AutoInfraStopBehavior.setMonitoringActive(true);
-		Auto.getPilot().forward();
+		Auto.pilot.forward();
 		while(!suppressed) Thread.yield();
-		Auto.getPilot().stop();
+		Auto.pilot.stop();
 		start = false;
 		}
 	

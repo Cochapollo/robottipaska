@@ -6,7 +6,10 @@ import lejos.utility.Delay;
 import paketti.Threads.Yhteyksienavaus;
 public class autoasd {
 	static Boolean[] mbol = {false,false,false,false};
-	
+	/**
+	 * Testi luokka jossa testasimme yhteyden muodostamista auton ja rekan välille jota emme saaneet koskaan kunnolla toimimaan
+	 * @param args
+	 */
 	public static void main(String[] args) {
 			
 		

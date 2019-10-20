@@ -1,4 +1,4 @@
-package AutonBehavior;
+package AutonBehaviorit;
 
 import lejos.robotics.subsumption.Behavior;
 import paketti.Auto;
@@ -30,9 +30,9 @@ public class AutoExitRampBehavior implements Behavior {
 		System.out.println("ExitRamp");
 		Auto.setStartPose();
 		Auto.setStartHeading();
-		System.out.println("X: " + Auto.getPoseprovider().getPose().getX());
-		System.out.println("Y: " + Auto.getPoseprovider().getPose().getY());
-		System.out.println("H: " + Auto.getPoseprovider().getPose().getHeading());
+		System.out.println("X: " + Auto.poseprovider.getPose().getX());
+		System.out.println("Y: " + Auto.poseprovider.getPose().getY());
+		System.out.println("H: " + Auto.poseprovider.getPose().getHeading());
 		
 		
 		//AutoInfraTriggerBehavior.setMonitoringActive(true);

@@ -1,4 +1,4 @@
-package AutonBehavior;
+package AutonBehaviorit;
 
 import lejos.hardware.Button;
 import lejos.hardware.sensor.EV3IRSensor;
@@ -29,7 +29,7 @@ public class AutoIdleBehavior implements Behavior {
 	public void action() {
 		suppressed = false;
 		
-		Auto.getPilot().stop();
+		Auto.pilot.stop();
 		System.out.println("Auto idle");
 		while(!suppressed) {
 		// TODO tänne joku listeneri tms. mikä odottaa rekalta starttikäskyä, jolloin asetetaan AutoExitRampBehaviorin starttiehto todeksi.
@@ -38,10 +38,10 @@ public class AutoIdleBehavior implements Behavior {
 		while(Button.ENTER.isDown()) {
 			AutoExitRampBehavior.setStart();
 		}
-		if(Auto.getHae().getBooleans()[0]) {
-			Auto.getHae().lopeta();
+		if(Auto.hae.getBooleans()[0]) {
+			Auto.hae.lopeta();
 			Boolean[] xd = {false,false,false,false};
-			Auto.getHae().setBooleans(xd);
+			Auto.hae.setBooleans(xd);
 			AutoExitRampBehavior.setStart();
 		}
 		while(Button.ESCAPE.isDown()) {

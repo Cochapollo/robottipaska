@@ -1,4 +1,4 @@
-package paketti;
+package RekanBehavior;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -11,9 +11,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import RekanBehavior.RekkaStraightBehavior;
 import lejos.hardware.Button;
 import lejos.robotics.subsumption.Behavior;
+import paketti.Rekka;
 
 /**
  * 

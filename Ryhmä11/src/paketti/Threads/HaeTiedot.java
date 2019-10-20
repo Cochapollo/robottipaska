@@ -6,7 +6,11 @@ import lejos.hardware.Button;
 import lejos.robotics.navigation.Waypoint;
 import lejos.utility.Delay;
 import paketti.Rekka;
-
+/**
+ * 
+ * @author petri
+ *Threadi joka hakee objectstreamistä boolean taulokon rekalle
+ */
 public class HaeTiedot extends Thread{
 	boolean kappa;
 	Boolean[] mbol = {false,false,false,false};
@@ -36,15 +40,30 @@ public class HaeTiedot extends Thread{
 		}
 
 	}
+	/**
+	 * Metodi jonka oli tarkoitus palauttaa waypointit jotta voimme lähettää sijainnin rekalta autolle
+	 * @return
+	 */
 	public synchronized Waypoint getWaypoint() {
 		return p;
 	}
+	/**
+	 * Palauttaa boolean taulukon
+	 * @return
+	 */
 	public synchronized Boolean[] getBooleans() {
 		return mbol;
 	}
+	/**
+	 * 
+	 * @param b
+	 */
 	public synchronized void setBooleans(Boolean[] b) {
 		this.mbol = b;
 	}
+	/**
+	 * Metodi threadin lopettamiseen
+	 */
 	public void lopeta() {
 		kappa = false;
 	}

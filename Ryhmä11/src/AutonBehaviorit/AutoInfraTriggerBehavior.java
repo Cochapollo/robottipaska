@@ -1,6 +1,4 @@
-package AutonBehavior;
-
-import java.sql.Savepoint;
+package AutonBehaviorit;
 
 import lejos.hardware.Sound;
 import lejos.robotics.subsumption.Behavior;
@@ -12,16 +10,17 @@ import paketti.Threads.InfrapunaThread;
  * Infrapunasensorin reaktioita käsittelevä behavior.
  *
  */
-public class AutoInfraStopBehavior implements Behavior {
+public class AutoInfraTriggerBehavior implements Behavior {
 
 	InfrapunaThread ir = Auto.getIr();
+	private static boolean enemyKilled = false;
 	private volatile boolean suppressed = false;
 	private static volatile boolean irMonitorActive = false;
 
 	//private static boolean start = false;
 	public boolean takeControl() {
 		
-		if(irMonitorActive && ir.liianLahella()) {
+		if(irMonitorActive && Auto.getIr().liianLahella()) {
 			return true;
 		} else
 		return false;
@@ -33,12 +32,19 @@ public class AutoInfraStopBehavior implements Behavior {
 	
 	public void action() {
 		suppressed = false;
-		Auto.getPilot().stop();
+		System.out.println("Target found!");
+		//Auto.pilot.travel(30);
+		Sound.beep();
+		AutoReturnToRekkaBehavior.setStart();
 		irMonitorActive = false;
-		Auto.getPilot().stop();
-	
 	}
 	public static void setMonitoringActive(boolean kys) {
 		irMonitorActive = kys;
+	}
+	public static void setEnemyKilled(boolean b) {
+		enemyKilled = b;
+	}
+	public static boolean getEnemyKilled() {
+		return enemyKilled;
 	}
 }
