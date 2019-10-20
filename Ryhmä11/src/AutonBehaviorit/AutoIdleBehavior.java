@@ -29,7 +29,7 @@ public class AutoIdleBehavior implements Behavior {
 	public void action() {
 		suppressed = false;
 		
-		Auto.pilot.stop();
+		Auto.getPilot().stop();
 		System.out.println("Auto idle");
 		while(!suppressed) {
 		// TODO tänne joku listeneri tms. mikä odottaa rekalta starttikäskyä, jolloin asetetaan AutoExitRampBehaviorin starttiehto todeksi.
@@ -38,10 +38,10 @@ public class AutoIdleBehavior implements Behavior {
 		while(Button.ENTER.isDown()) {
 			AutoExitRampBehavior.setStart();
 		}
-		if(Auto.hae.getBooleans()[0]) {
-			Auto.hae.lopeta();
+		if(Auto.getHae().getBooleans()[0]) {
+			Auto.getHae().lopeta();
 			Boolean[] xd = {false,false,false,false};
-			Auto.hae.setBooleans(xd);
+			Auto.getHae().setBooleans(xd);
 			AutoExitRampBehavior.setStart();
 		}
 		while(Button.ESCAPE.isDown()) {

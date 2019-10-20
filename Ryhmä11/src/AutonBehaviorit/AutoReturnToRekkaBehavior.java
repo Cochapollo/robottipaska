@@ -28,12 +28,12 @@ public class AutoReturnToRekkaBehavior implements Behavior {
 	public void action() {
 		suppressed = false;
 		
-		System.out.println("X: " + Auto.poseprovider.getPose().getX());
-		System.out.println("Y: " + Auto.poseprovider.getPose().getY());
-		Auto.navigator.goTo(10, 10, Auto.startHeading);
-		Auto.navigator.waitForStop();
-		System.out.println("X: " + Auto.poseprovider.getPose().getX());
-		System.out.println("Y: " + Auto.poseprovider.getPose().getY());
+		System.out.println("X: " + Auto.getPoseprovider().getPose().getX());
+		System.out.println("Y: " + Auto.getPoseprovider().getPose().getY());
+		Auto.getNavigator().goTo(10, 10, Auto.getStartHeading());
+		Auto.getNavigator().waitForStop();
+		System.out.println("X: " + Auto.getPoseprovider().getPose().getX());
+		System.out.println("Y: " + Auto.getPoseprovider().getPose().getY());
 	
 		start = false;
 		AutoAlignRampBehavior.setStart();

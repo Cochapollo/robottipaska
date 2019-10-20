@@ -33,9 +33,9 @@ public class AutoInfraStopBehavior implements Behavior {
 	
 	public void action() {
 		suppressed = false;
-		Auto.pilot.stop();
+		Auto.getPilot().stop();
 		irMonitorActive = false;
-		Auto.pilot.stop();
+		Auto.getPilot().stop();
 	
 	}
 	public static void setMonitoringActive(boolean kys) {
