@@ -135,7 +135,7 @@ public class InfrapunaThread extends Thread{
     	return rekkaBeaconDistance;
     }
     /**
-     * hakee 50 arvoa beacon sijainnista ja palauttaa keskiarvon niistä
+     * hakee 50 arvoa beacon sijainnista ja palauttaa keskiarvon niistä. Karsii pois virheelliset arvot.
      * @return
      */
     public double getRampBeaconDirection() {
@@ -152,7 +152,7 @@ public class InfrapunaThread extends Thread{
     	return avgDir;
     }
 /**
- * hakee 50 arvoa beacon etäisyydestä ja palauttaa keskiarvon niistä
+ * hakee 50 arvoa beacon etäisyydestä ja palauttaa keskiarvon niistä. Karsii pois vihreelliset arvot.
  * @return
  */
     public double getRampBeaconDistance() {

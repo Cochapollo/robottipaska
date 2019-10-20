@@ -31,10 +31,6 @@ public class RekkaTurnBehavior implements Behavior {
 		Rekka.getGyrodirectionfinder().setDegrees(0);
 		System.out.println("GyroHeadingDegrees: " + Rekka.getGyrodirectionfinder().getDegrees());
 		RekkaGyroInterceptBehavior.setGyroActive(true);
-		//gyro.resetTotalAngle();
-		//Rekka.setTargetHeading();
-		//System.out.println("Total angle: " + gyro.getTotalAngle());
-		//System.out.println("Current heading: " + Rekka.getCurrentHeading());
 		Rekka.getPilot().arcForward(45);
 		while(!suppressed) Thread.yield();
 		Rekka.getPilot().stop();

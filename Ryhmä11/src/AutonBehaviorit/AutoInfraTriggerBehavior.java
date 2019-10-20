@@ -33,13 +33,13 @@ public class AutoInfraTriggerBehavior implements Behavior {
 	public void action() {
 		suppressed = false;
 		System.out.println("Target found!");
-		//Auto.pilot.travel(30);
+		Auto.pilot.travel(30);
 		Sound.beep();
 		AutoReturnToRekkaBehavior.setStart();
 		irMonitorActive = false;
 	}
-	public static void setMonitoringActive(boolean kys) {
-		irMonitorActive = kys;
+	public static void setMonitoringActive(boolean bo) {
+		irMonitorActive = bo;
 	}
 	public static void setEnemyKilled(boolean b) {
 		enemyKilled = b;

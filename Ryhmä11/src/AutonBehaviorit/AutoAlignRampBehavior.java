@@ -35,7 +35,7 @@ public class AutoAlignRampBehavior implements Behavior {
 		rampIRcheck = false;
 		rampNearby = false;
 		
-		/*while(!rampNearby) {
+		while(!rampNearby) {
 			rampBeaconDirection = ir.getRampBeaconDirection();
 			rampBeaconDistance = ir.getRampBeaconDistance();
 			System.out.println("Dir: " + rampBeaconDirection + " Dis: " + rampBeaconDistance);
@@ -58,7 +58,7 @@ public class AutoAlignRampBehavior implements Behavior {
 				
 				
 			}
-		}*/
+		}
 		
 		while(!rampIRcheck) {
 			System.out.println("L: " + ir.getLeftDistance() + " R: " + ir.getRightDistance());
@@ -70,14 +70,14 @@ public class AutoAlignRampBehavior implements Behavior {
 				Auto.getPilot().travel(15);
 			}
 			else if (ir.leftRampNear() && !ir.rightRampNear()) {
-				//Auto.pilot.rotate(10);
+				
 				Auto.getPilot().travelArc(20, 20);
 				rampIRcheck=true;
 				break;
 				
 			}
 			else if (!ir.leftRampNear() && ir.rightRampNear()) {
-				//Auto.pilot.rotate(-10);
+				
 				Auto.getPilot().travelArc(-20, 20);
 				rampIRcheck=true;
 				break;
@@ -91,7 +91,7 @@ public class AutoAlignRampBehavior implements Behavior {
 	public static void setStart() {
 		start = true;
 	}
-	public static void setRampNearby (boolean jew) {
-		rampNearby = jew;
+	public static void setRampNearby (boolean b) {
+		rampNearby = b;
 	}
 }

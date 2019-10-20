@@ -6,7 +6,7 @@ import paketti.Rekka;
 
 /**
  * 
- * Rekka ajaa hitaasti pitkää suoraa jonkin aikaa.
+ * Gyrosensorin arvoja seuraava behavior. Aktivoituu ja lopettaa rekan kaartamisen kun rekka on kääntynyt 180 astetta.
  *
  */
 public class RekkaGyroInterceptBehavior implements Behavior {
@@ -33,14 +33,12 @@ public class RekkaGyroInterceptBehavior implements Behavior {
 		suppressed = false;
 		System.out.println("GyroIntercept");
 		System.out.println("GyroHeadingDegrees: " + Rekka.getGyrodirectionfinder().getDegrees());
-		//System.out.println("Total angle:" + gyro.getTotalAngle());
-		//System.out.println("current heading:" + Rekka.getCurrentHeading());
 		gyroActive = false;
 		gyro.resetTotalAngle();
-		//RekkaStraightBehavior.setStart();
+		RekkaStraightBehavior.setStart();
 	
 	}
-	public static void setGyroActive(boolean jew) {
-		gyroActive = jew;
+	public static void setGyroActive(boolean b) {
+		gyroActive = b;
 	}
 }

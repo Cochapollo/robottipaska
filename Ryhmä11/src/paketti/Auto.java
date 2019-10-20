@@ -41,7 +41,7 @@ public class Auto {
 		static final Wheel wheel3 = WheeledChassis.modelWheel(frontLeft, 4.23).offset(23.5);
 		static final Wheel wheel4 = WheeledChassis.modelWheel(frontRight, 4.23).offset(-23.5);
 		static final Chassis chassis = new WheeledChassis(new Wheel[] { wheel1, wheel2, wheel3, wheel4 }, WheeledChassis.TYPE_DIFFERENTIAL);
-		private static MovePilot pilot = new MovePilot(chassis);
+		public static MovePilot pilot = new MovePilot(chassis);
 		
 		private static PoseProvider poseprovider = chassis.getPoseProvider();
 		private static Navigator navigator = new Navigator(getPilot());

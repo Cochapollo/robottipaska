@@ -38,7 +38,7 @@ public class RekkaStraightBehavior implements Behavior {
 	public static ObjectInputStream oIn = null, autoOin = null, rekkaOin = null;
 	
 	public boolean takeControl() {
-		//Rekan alin behavior, aina true
+		//Rekka vuorottelee suoranajon ja kaarrosten välillä ajaen ovaalia rataa.
 		return start;
 	}
 	
@@ -74,11 +74,9 @@ public class RekkaStraightBehavior implements Behavior {
 		Boolean[] xd = {false,false,false,false};
 		Rekka.getHae().setBooleans(xd);
 		Rekka.getPilot().travel(100);
-		
-		//while(!suppressed) Thread.yield();
-		//Rekka.pilot.stop();
-		//RekkaGyroInterceptBehavior.setGyroActive(true);
-		//RekkaTurnBehavior.setStart();
+
+		RekkaGyroInterceptBehavior.setGyroActive(true);
+		RekkaTurnBehavior.setStart();
 	}
 	public static void setStart() {
 		start = true;

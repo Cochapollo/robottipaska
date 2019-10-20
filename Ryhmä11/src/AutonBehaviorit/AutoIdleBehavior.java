@@ -32,8 +32,6 @@ public class AutoIdleBehavior implements Behavior {
 		Auto.getPilot().stop();
 		System.out.println("Auto idle");
 		while(!suppressed) {
-		// TODO tänne joku listeneri tms. mikä odottaa rekalta starttikäskyä, jolloin asetetaan AutoExitRampBehaviorin starttiehto todeksi.
-		
 		
 		while(Button.ENTER.isDown()) {
 			AutoExitRampBehavior.setStart();

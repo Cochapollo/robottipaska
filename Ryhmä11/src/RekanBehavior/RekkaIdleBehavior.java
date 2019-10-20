@@ -17,7 +17,7 @@ import paketti.Rekka;
 
 /**
  * 
- * Behaviorlistan käynnissä pitävä idle-behavior. Aina käynnissä silloin kun auto on rekan lavetin päällä toimettomana.
+ * Behaviorlistan käynnissä pitävä idle-behavior. Käynnissä rekan ollessa toimettomana.
  *
  */
 public class RekkaIdleBehavior implements Behavior {
@@ -30,9 +30,7 @@ public class RekkaIdleBehavior implements Behavior {
 	public static BufferedOutputStream Out = null, autoOut = null, rekkaOut = null;
 	public static DataOutputStream dOut = null, autoDout = null, rekkaDout = null;
 	public static ObjectOutputStream oOut = null, autoOout = null,rekkaOout = null;
-	public static ObjectInputStream oIn = null, autoOin = null, rekkaOin = null;
-	//private Auto auto = new Auto();
-	
+	public static ObjectInputStream oIn = null, autoOin = null, rekkaOin = null;	
 	
 	public boolean takeControl() {
 		
