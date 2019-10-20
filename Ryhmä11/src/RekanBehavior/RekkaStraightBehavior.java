@@ -58,17 +58,17 @@ public class RekkaStraightBehavior implements Behavior {
 			rekkaOout.flush();
 			
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		try {
 			rekkaOout.writeObject(Rekka.getHae().getBooleans());
 			rekkaOout.flush();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		Boolean[] xd = {false,false,false,false};
